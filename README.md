@@ -1,2 +1,2 @@
-# Senior-Design-2025
-George Eliot Archives Digital Humanities #1 Senior Design Project
+# GE's Nonfiction Audio-Visual
+George Eliot Archives Digital Humanities #1 Senior Design Project Spring 2025 
