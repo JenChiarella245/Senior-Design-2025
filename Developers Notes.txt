@@ -22,3 +22,139 @@ Added audio object to each title with URL from metadata on items on the simple p
 The audio player is a function built into HTML and gives the user the option to play, pause, control the audio and adjust the playback speed. Because of this, the programming for this function was really simple and just needed to be implemented in our corresponding items on the page. 
 
 
+
+iFrame Integration 
+1.1 Creating REACT App with Vite
+1.1.1 Prerequisite Installation Guide
+
+1. Install Node.js & npm
+Go to the official Node.js website and download the latest LTS version
+Run the installer and follow the steps
+Once done, open your terminal and run:
+node -v
+npm -v
+
+1.1.2 Set Up a React App with Vite
+
+1. Create the App
+Open your terminal and run:
+npm create vite@latest my-app --template react
+cd my-app
+
+2. Install Dependencies
+Install all required packages:
+npm install
+
+3. Run the App Locally
+To start your dev server:
+npm run dev
+
+1.1.3 Add GitHub Pages Support
+
+1. Install the deploy tool
+npm install gh-pages --save-dev
+
+1.1.4 Deployment to GitHub Pages
+
+1. Update package.json by adding this line at the top level (outside “scripts”)
+"homepage": "https://<your-github-username>.github.io/<your-repo-name>"
+
+2. Update or add these “scripts” to package.json
+"dev": "vite",
+  			"build": "vite build",
+  			"predeploy": "npm run build",
+  			"deploy": "gh-pages -d dist"
+
+1.1.5 Push to GitHub
+
+1. Initialize Git
+git init
+
+2. Create a .gitignore file and add:
+node_modules
+dist
+
+3. Create a GitHub repo at: https://github.com/new
+Name it the same as your app (e.g., my-react-app)
+
+4. Link your local app to the GitHub repo:
+git remote add origin https://github.com/<your-username>/<your-repo-name>.git
+git branch -M main
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+
+1.1.6 Deploy to GitHub Pages
+
+1. In terminal, run:
+npm run deploy
+
+2. After a few seconds, your app will be live at:
+https://<your-github-username>.github.io/<your-repo-name>/
+
+
+
+Sentiment Analysis 
+4.1 Creating Sentiment Analysis Files and Graphs
+4.1.1 Tools used for Sentiment Analysis
+
+We used VADER (Valence Dictionary and sEntiment Reasoner) along with NLTK (Natural Language ToolKit) to conduct our sentiment analysis. Vader is a light weight, open source, and accurate sentiment analysis tool. 
+
+Used mostly to analyze sentiments in social media. It is lexicon and rule-based - uses words or phrases and as well as grammatical and syntactical rules to determine the sentiment of the text. It is open sourced from MIT license and provides sentiment scores -1 being most negative, +1 being most positive, along with a compound. The compound is the overall sentiment of the text. It is calculated by summing the valence scores of each word in the text, adjusted according to the rules of the VADER algorithm, and then normalized to fall within the -1 to +1 range.  
+
+Vader, in conjunction with NLTK, can handle sentiment analysis on longer texts to decompose paragraphs, articles, publications, or novels. VADER can handle typical negations (“not good”), use contractions as negations (“wasn’t very good”), conventional use of punctuation to signal increased sentiment intensity (“Good!!!”), conventional use of word-shape to signal emphasis (“GOOD”), and using degree modifiers to alter sentiment intensity (“very”, “kind of”, etc.).
+It has a large and robust dictionary of words and rules and includes the context of the grammar and punctuation in its sentiment analysis which is important when thinking about the sentiment in context to the words and grammar around it. This is more of what we had in mind from the get go and Voyant also did not offer this kind of sentiment analysis. Using VADER with NLTK allows us to do sentiment analysis on the large non-fiction works. We find that the sentiment analysis stays consistent throughout the entirety of the text no matter the file size. 
+
+4.1.2 Sentiment Analysis HTML files and Graphs
+		
+After deciding on the sentiment analysis tools to use, we created code that would run through a whole folder of .txt files, perform the sentiment analysis of each .txt file, return the words with positive, negative, and neutral or no sentiment, create a HTML file of the original .txt file with the sentiment analysis within the text, and save all sentiment analysis HTML files in another folder.
+
+The positive sentiment is orange and the negative sentiment is dark blue. The words with neutral or no sentiment are black. 
+
+Similarly, for the sentiment analysis graphs, the same tools for sentiment analysis were used and all words with positive and negative sentiment were counted and that count was displayed in a graph for each nonfiction work.
+
+4.2 Displaying Sentiment Analysis HTML Files and Graphs
+4.2.1 Displaying Sentiment Analysis HTML Files
+
+To see all code for how to display sentiment analysis HTML files use the following link: 
+Senior-Design-2025: GE's Nonfiction Audio-Visual
+In the Frontend folder, the files responsible for displaying the the sentiment analysis HTML files are as follows: 
+
+Data.js - found in the src folder
+
+	Maps the titles to the html filenames. 
+
+App.jsk - found in the src folder
+	
+	Maps the html files to the ExpandButton that will display the html files for each nonfiction work. 
+
+ExpandButton.jsk - found in the components folder within src folder
+
+	Displays the html sentiment analysis file in its own iframe. 
+
+Titles.json - found in src folder
+
+	Hold all nonfiction title names and the file names of all nonfiction html sentiment analysis files. 
+
+
+4.2.2 Displaying Sentiment Analysis Graphs
+
+Similarly, to see all code for how to display sentiment analysis HTML files use the following link: Senior-Design-2025: GE's Nonfiction Audio-Visual
+In the Frontend folder, the files responsible for displaying the the sentiment analysis HTML files are as follows: 
+
+Data.js - found in the src folder
+
+	Maps the titles to the graph filenames. 
+
+App.jsk - found in the src folder
+	
+	Maps the graph files to the ExpandButton that will display the graphs for each nonfiction work. 
+
+ExpandButton.jsk - found in the components folder within src folder
+
+	Displays the sentiment analysis graphs below the sentiment analysis html iframe. 
+
+Titles.json - found in src folder
+
+	Hold all nonfiction title names and the file names of all nonfiction sentiment analysis graphs.
+
