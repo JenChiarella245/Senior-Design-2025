@@ -1,0 +1,24 @@
+Developers Notes
+Senior Design Spring 2025 Group 1
+Madison Champion, Maci Hadley, Skylar Reichle, Jenna Chiarella 
+
+
+Audio Player
+data.js
+Added an audio item under sections
+
+ExpandButton.jsx
+	Added the audio object to the ExpandButton function
+	Created an audioUrl constant and added it to the console.log
+Added body where the player will only display if the URL exists, created the text to read above player.
+
+App.jsx
+Added audio to the app function
+
+titles.json
+Added audio object to each title with URL from metadata on items on the simple page on Omeka
+
+3.1 About the player 
+The audio player is a function built into HTML and gives the user the option to play, pause, control the audio and adjust the playback speed. Because of this, the programming for this function was really simple and just needed to be implemented in our corresponding items on the page. 
+
+
